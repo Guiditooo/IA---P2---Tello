@@ -8,14 +8,15 @@ public class Movement : MonoBehaviour
 {
     public enum Movement_Direction
     {
-        Up, Right, Down, Left, None
+        Up, Right, Down, Left, None = default
     };
 
-    [SerializeField] private Movement_Direction nextDirection;
+    [SerializeField] private Movement_Direction nextDirection = default;
     
     private float timeElapsed;
     private Action Move;
     private GridViewer gridViewer;
+
     private void Awake()
     {
         gridViewer = GetComponent<GridViewer>();
