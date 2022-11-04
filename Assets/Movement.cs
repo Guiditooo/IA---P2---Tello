@@ -6,26 +6,30 @@ using System;
 [RequireComponent(typeof(GridViewer))]
 public class Movement : MonoBehaviour
 {
-    
     public enum Movement_Direction
     {
         Up, Right, Down, Left, None
     };
 
-    [SerializeField] private float speed;
+    [SerializeField] private Movement_Direction nextDirection;
     
     private float timeElapsed;
-
     private Action Move;
+    private GridViewer gridViewer;
+    private void Awake()
+    {
+        gridViewer = GetComponent<GridViewer>();
+    }
 
     void Update()
     {
         timeElapsed += Time.deltaTime;
-        MoveSelector();
-        if(timeElapsed>1)
+        MoveSelector(nextDirection);
+        if (timeElapsed > 1)
         {
             timeElapsed -= 1;
-
+            Move?.Invoke();
+            Debug.Log("ActualPos: " + gridViewer.GetGridPosition().x + "-" + gridViewer.GetGridPosition().y + ".");
         }
     }
     private void MoveSelector(Movement_Direction direction = Movement_Direction.None)
@@ -33,16 +37,41 @@ public class Movement : MonoBehaviour
         switch (direction)
         {
             case Movement_Direction.Up:
+                Move = MoveUp;
                 break;
             case Movement_Direction.Right:
+                Move = MoveRight;
                 break;
             case Movement_Direction.Down:
+                Move = MoveDown;
                 break;
             case Movement_Direction.Left:
+                Move = MoveLeft;
                 break;
-            case Movement_Direction.None:
             default:
+                Move = DontMove;
                 break;
         }
+    }
+
+    private void MoveUp()
+    {
+        gridViewer.AddUnitY();
+    }
+    private void MoveRight()
+    {
+        gridViewer.AddUnitX();
+    }
+    private void MoveDown()
+    {
+        gridViewer.RemoveUnitY();
+    }
+    private void MoveLeft()
+    {
+        gridViewer.RemoveUnitX();
+    }
+    private void DontMove()
+    {
+
     }
 }
