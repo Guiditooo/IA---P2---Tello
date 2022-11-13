@@ -2,6 +2,11 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
+/***
+ * Esto contiene la información de la grilla
+ * GetGridLimits devuelve el valor máximo alcanzable en la grilla 
+ * GetGridSize devuelve el tamaño de la grilla
+***/
 public class GridManager : MonoBehaviour
 {
 

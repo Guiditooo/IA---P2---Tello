@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine;
 using System;
 
-[RequireComponent(typeof(GridViewer))]
 public class Movement : MonoBehaviour
 {
     public enum Movement_Direction
@@ -15,12 +14,7 @@ public class Movement : MonoBehaviour
     
     private float timeElapsed;
     private Action Move;
-    private GridViewer gridViewer;
-
-    private void Awake()
-    {
-        gridViewer = GetComponent<GridViewer>();
-    }
+    private GridViewer gridViewer = new GridViewer();
 
     void Update()
     {

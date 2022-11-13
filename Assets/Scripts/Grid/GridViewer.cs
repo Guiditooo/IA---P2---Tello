@@ -2,16 +2,26 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
-public class GridViewer : MonoBehaviour
+/***
+ * Esto contiene la información necesaria para que una unidad reconozca la grilla
+ * Permite el movimiento en la grilla agregando o sacando valores de X.
+ * 
+***/
+
+public class GridViewer
 {
-    [SerializeField] private Vector2Int initialGridPos = Vector2Int.zero;
-    private Vector2Int gridPos;
+    private Vector2Int gridPos = default;
     public Vector2Int GetGridPosition() => gridPos;
-    
-    private void Awake()
+
+    public void SetGridPosition(Vector2Int newGridPos)
     {
-        gridPos = initialGridPos;
+        gridPos = newGridPos;
     }
+    public void SetGridPosition(int x, int y)
+    {
+        gridPos = new Vector2Int(x,y);
+    }
+
     public void AddUnitX() 
     {
         if (gridPos.x + 1 <= GridManager.GetGridLimits().x)
@@ -31,7 +41,7 @@ public class GridViewer : MonoBehaviour
         }
         else
         {
-            gridPos.x = GridManager.GetGridLimits().x-1;
+            gridPos.x = GridManager.GetGridLimits().x;
         }
     }
     public void AddUnitY() 
