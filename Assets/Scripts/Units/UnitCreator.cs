@@ -30,7 +30,8 @@ public class UnitCreator : MonoBehaviour
     {
         GameObject unit = null;
 
-        int xInitialPos = GridManager.GetGridSize().x / 2 - GridManager.UnitsPerTeam / 2;
+        int xTopPos = GridManager.GetGridSize().x / 2 + GridManager.UnitsPerTeam / 2;
+        int xBottomPos = GridManager.GetGridSize().x / 2 - GridManager.UnitsPerTeam / 2;
 
         int yTopPos = GridManager.GetGridLimits().y;
         int yBottomPos = 0;
@@ -39,13 +40,13 @@ public class UnitCreator : MonoBehaviour
         {
             unit = Instantiate(redUnitPrefab, redUnitsFolder);
             unit.name = "Red " + (i+1).ToString();
-            unit.GetComponent<Unit>().SetPosition(xInitialPos + i, yTopPos);
+            unit.GetComponent<Unit>().SetPosition(xTopPos - i, yTopPos);
         }
         for (int i = 0; i < GridManager.UnitsPerTeam; i++)
         {
             unit = Instantiate(greenUnitPrefab, greenUnitsFolder);
             unit.name = "Green " + (i + 1).ToString();
-            unit.GetComponent<Unit>().SetPosition(xInitialPos + i, yBottomPos);
+            unit.GetComponent<Unit>().SetPosition(xBottomPos + i, yBottomPos);
         }
     }
     private void CreateFolders()
