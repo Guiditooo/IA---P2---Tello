@@ -14,18 +14,33 @@ public class GridViewer : MonoBehaviour
     }
     public void AddUnitX() 
     {
-        if (gridPos.x+1 <= GridManager.GetGridLimits().x)
+        if (gridPos.x + 1 <= GridManager.GetGridLimits().x)
+        {
             gridPos.x++;
+        }
+        else
+        {
+            gridPos.x = 0;
+        }
     }
-    public void RemoveUnitX() 
+    public void RemoveUnitX()
     {
-        if (gridPos.x-1 >= 0)
+        if (gridPos.x - 1 >= 0)
+        {
             gridPos.x--;
+        }
+        else
+        {
+            gridPos.x = GridManager.GetGridLimits().x-1;
+        }
     }
     public void AddUnitY() 
     {
-        if (gridPos.y+1 <= GridManager.GetGridLimits().y)
+        if (gridPos.y + 1 <= GridManager.GetGridLimits().y)
+        {
             gridPos.y++;
+        }
+
     }
     public void RemoveUnitY() 
     {

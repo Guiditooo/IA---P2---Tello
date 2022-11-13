@@ -13,6 +13,10 @@ public class GridManager : MonoBehaviour
 
     public static Vector2Int GetGridLimits()
     {
+        return new Vector2Int(gridWidth - 1, gridHeight - 1);
+    }
+    public static Vector2Int GetGridSize()
+    {
         return new Vector2Int(gridWidth, gridHeight);
     }
     private void Awake()
@@ -20,6 +24,5 @@ public class GridManager : MonoBehaviour
         gridWidth = initialGridWidth;
         gridHeight = initialGridHeight;
     }
-
 
 }

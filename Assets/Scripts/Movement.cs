@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
 {
     public enum Movement_Direction
     {
-        Up, Right, Down, Left, None = default
+        None, Up, Right, Down, Left
     };
 
     [SerializeField] private Movement_Direction nextDirection = default;
