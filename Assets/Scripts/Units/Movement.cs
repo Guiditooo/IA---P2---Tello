@@ -3,50 +3,46 @@ using System.Collections;
 using UnityEngine;
 using System;
 
-public class Movement : MonoBehaviour
+public class Movement
 {
     public enum Movement_Direction
     {
         None, Up, Right, Down, Left
     };
 
-    [SerializeField] private Movement_Direction nextDirection = default;
+    private Movement_Direction nextDirection = default;
     
-    private float timeElapsed;
-    private Action Move;
-    private GridViewer gridViewer = new GridViewer();
-
-    void Update()
-    {
-        timeElapsed += Time.deltaTime;
-        MoveSelector(nextDirection);
-        if (timeElapsed > 1)
-        {
-            timeElapsed -= 1;
-            Move?.Invoke();
-            Debug.Log("ActualPos: " + gridViewer.GetGridPosition().x + "-" + gridViewer.GetGridPosition().y + ".");
-        }
-    }
-    private void MoveSelector(Movement_Direction direction = Movement_Direction.None)
+    public void SetNextMovement(Movement_Direction direction = Movement_Direction.None)
     {
         switch (direction)
         {
             case Movement_Direction.Up:
-                Move = MoveUp;
+                NextMove = MoveUp;
                 break;
             case Movement_Direction.Right:
-                Move = MoveRight;
+                NextMove = MoveRight;
                 break;
             case Movement_Direction.Down:
-                Move = MoveDown;
+                NextMove = MoveDown;
                 break;
             case Movement_Direction.Left:
-                Move = MoveLeft;
+                NextMove = MoveLeft;
                 break;
             default:
-                Move = DontMove;
+                NextMove = DontMove;
                 break;
         }
+        nextDirection = direction;
+    }
+
+    private float timeElapsed;
+    private Action NextMove;
+    private GridViewer gridViewer = new GridViewer();
+
+    public void Move()
+    {
+        NextMove?.Invoke();
+        Debug.Log("ActualPos: " + gridViewer.GetGridPosition().x + "-" + gridViewer.GetGridPosition().y + ".");
     }
 
     private void MoveUp()
