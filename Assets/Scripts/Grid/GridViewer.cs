@@ -3,9 +3,8 @@ using System.Collections;
 using UnityEngine;
 
 /***
- * Esto contiene la información necesaria para que una unidad reconozca la grilla
+ * Esto contiene la información necesaria para que una unidad reconozca la grilla.
  * Permite el movimiento en la grilla agregando o sacando valores de X.
- * 
 ***/
 
 public class GridViewer

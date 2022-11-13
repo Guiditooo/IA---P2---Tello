@@ -3,6 +3,12 @@ using System.Collections;
 using UnityEngine;
 using System;
 
+/***
+ * Accion de movimiento de una unidad.
+ * Puede moverse tanto para arriba, abajo, izquierda, derecha, asi como no hacerlo.
+ * Utiliza el GridViewer para moverse sobre la grilla.
+***/
+
 public class Movement
 {
     public enum Movement_Direction
@@ -42,7 +48,7 @@ public class Movement
     public void Move()
     {
         NextMove?.Invoke();
-        Debug.Log("ActualPos: " + gridViewer.GetGridPosition().x + "-" + gridViewer.GetGridPosition().y + ".");
+        //Debug.Log("ActualPos: " + gridViewer.GetGridPosition().x + "-" + gridViewer.GetGridPosition().y + ".");
     }
 
     private void MoveUp()

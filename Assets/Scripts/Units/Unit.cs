@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/***
+ * Esto contiene la funcionalidad de cada unidad.
+ * Realiza el la eleccion del siguiente movimiento.
+ * Realiza el movimiento.
+ * --- DEBE TENER UNA SUSCRIPCION A UN EVENTO QUE LE DIGA CUANDO MOVERSE (TIME MANAGER) ---
+ * --- AVERIGUAR COMO HACER PARA MANEJAR LA POSICION DEL GRIDVIEWER SIN PASAR POR MOVEMENT ---
+***/
+
 public class Unit : MonoBehaviour
 {
     [Header("Grid Related")]
@@ -12,6 +20,7 @@ public class Unit : MonoBehaviour
 
     private Movement movement = new Movement();
     private float timeElapsed;
+    private Vector2Int pos;//esto esta adentro de movement tengo que buscar una manera de sacarlo de ahi
 
     private void Awake()
     {
@@ -31,5 +40,13 @@ public class Unit : MonoBehaviour
         }
     }
 
+    public void SetPosition(Vector2Int newPos)
+    {
+        pos = newPos;
+    }
+    public void SetPosition(int x, int y)
+    {
+        pos = new Vector2Int(x,y);
+    }
 
 }
