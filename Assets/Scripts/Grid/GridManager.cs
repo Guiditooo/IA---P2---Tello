@@ -41,7 +41,14 @@ public class GridManager : MonoBehaviour
     {
         gridWidth = initialGridWidth;
         gridHeight = initialGridHeight;
-        unitsPerTeam = initialUnitsPerTeam;
+        if (initialUnitsPerTeam <= initialGridWidth)
+        {
+            unitsPerTeam = initialUnitsPerTeam;
+        }
+        else
+        {
+            unitsPerTeam = initialGridWidth;
+        }
     }
 
 }
