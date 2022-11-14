@@ -12,6 +12,11 @@ public class GridViewer
     private Vector2Int gridPos = default;
     public Vector2Int GetGridPosition() => gridPos;
 
+    public GridViewer(Vector2Int newGridPos)
+    {
+        gridPos = newGridPos;
+    }
+
     public void SetGridPosition(Vector2Int newGridPos)
     {
         gridPos = newGridPos;

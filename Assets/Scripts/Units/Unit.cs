@@ -18,13 +18,17 @@ public class Unit : MonoBehaviour
     [Header("Movement Related")]
     [SerializeField] private float movementTime = 0.25f; // Reemplazar por el tiempo del TimeManager
 
-    private Movement movement = new Movement();
     private float timeElapsed;
-    private Vector2Int pos;//esto esta adentro de movement tengo que buscar una manera de sacarlo de ahi
+    private Vector2Int gridPos;
+    private GridViewer gridViewer;
+    private Movement movement;
 
     private void Awake()
     {
-        
+        gridPos = startingGridPos;
+        gridViewer = new GridViewer(gridPos);
+        movement = new Movement(gridViewer);
+
         //Suscribirse al evento de cambiar de direccion para moverse
     }
 
@@ -37,16 +41,18 @@ public class Unit : MonoBehaviour
             timeElapsed -= movementTime;
             movement.SetNextMovement((Movement.Movement_Direction)Random.Range(0,6));
             movement.Move();
+            gridPos = gridViewer.GetGridPosition();
         }
     }
 
     public void SetPosition(Vector2Int newPos)
     {
-        pos = newPos;
+        gridPos = newPos;
     }
     public void SetPosition(int x, int y)
     {
-        pos = new Vector2Int(x,y);
+        gridPos = new Vector2Int(x,y);
     }
+    public Vector2Int GetPosition() => gridPos;
 
 }

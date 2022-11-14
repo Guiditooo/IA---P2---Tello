@@ -17,7 +17,13 @@ public class Movement
     };
 
     private Movement_Direction nextDirection = default;
-    
+    private Action NextMove;
+    private GridViewer gridViewer = null;
+    public Movement(GridViewer newGridViewer)
+    {
+        gridViewer = newGridViewer;
+    }
+
     public void SetNextMovement(Movement_Direction direction = Movement_Direction.None)
     {
         switch (direction)
@@ -40,10 +46,6 @@ public class Movement
         }
         nextDirection = direction;
     }
-
-    private float timeElapsed;
-    private Action NextMove;
-    private GridViewer gridViewer = new GridViewer();
 
     public void Move()
     {

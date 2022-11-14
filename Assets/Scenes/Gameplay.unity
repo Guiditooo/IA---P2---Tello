@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialGridWidth: 5
   initialGridHeight: 5
-  initialUnitsPerTeam: 10
+  initialUnitsPerTeam: 1
 --- !u!114 &369550646
 MonoBehaviour:
   m_ObjectHideFlags: 0
