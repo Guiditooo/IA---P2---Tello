@@ -16,16 +16,20 @@ public class GridBuilder : MonoBehaviour
     [Header("Target Folder")]
     [SerializeField] private Transform tileMap = default;
 
+
+    private static float tileSize = default;
+    public static float GetTileSize() => tileSize;
+
     private void Start()
     {
-        float imgSize = tilePrefab.GetComponent<SpriteRenderer>().bounds.size.x;
+        tileSize = tilePrefab.GetComponent<SpriteRenderer>().bounds.size.x;
         for (int y = 0; y < GridManager.GetGridSize().y; y++) //Cada Fila
         {
             for (int x = 0; x < GridManager.GetGridSize().x; x++) //Cada Columna
             {
                 GameObject newTile = Instantiate(tilePrefab, tileMap);
                 newTile.GetComponent<Tile>().SetPosition(x, y);
-                newTile.transform.position = new Vector3(imgSize * x, imgSize * y, 0);
+                newTile.transform.position = new Vector3(tileSize * x, tileSize * y, 0);
                 newTile.name = x.ToString() + "-" + y.ToString();
             }
         }

@@ -168,9 +168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a5440c1cb18cb7498f92bcdc40c6f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialGridWidth: 5
-  initialGridHeight: 5
-  initialUnitsPerTeam: 1
+  initialGridWidth: 100
+  initialGridHeight: 100
+  initialUnitsPerTeam: 90
 --- !u!114 &369550646
 MonoBehaviour:
   m_ObjectHideFlags: 0

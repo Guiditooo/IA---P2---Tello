@@ -19,6 +19,8 @@ public class UnitCreator : MonoBehaviour
     private Transform greenUnitsFolder = default;
     private Transform redUnitsFolder = default;
 
+    private float unitSize = default;
+
     void Start()
     {
         CreateFolders();
@@ -28,6 +30,10 @@ public class UnitCreator : MonoBehaviour
 
     private void CreateUnits()
     {
+
+        unitSize = greenUnitPrefab.GetComponent<SpriteRenderer>().bounds.size.x;
+        float tileSize = GridBuilder.GetTileSize();
+
         GameObject unit = null;
 
         int xTopPos = GridManager.GetGridSize().x / 2 + GridManager.UnitsPerTeam / 2;
@@ -36,17 +42,21 @@ public class UnitCreator : MonoBehaviour
         int yTopPos = GridManager.GetGridLimits().y;
         int yBottomPos = 0;
 
+        float tileCenter = tileSize / 2 - unitSize / 2;
+
         for (int i = 0; i < GridManager.UnitsPerTeam; i++)
         {
             unit = Instantiate(redUnitPrefab, redUnitsFolder);
             unit.name = "Red " + (i+1).ToString();
             unit.GetComponent<Unit>().SetPosition(xTopPos - i, yTopPos);
+            unit.transform.position = new Vector3(tileCenter+tileSize*(xTopPos-i), tileCenter + tileSize * yTopPos, 0);
         }
         for (int i = 0; i < GridManager.UnitsPerTeam; i++)
         {
             unit = Instantiate(greenUnitPrefab, greenUnitsFolder);
             unit.name = "Green " + (i + 1).ToString();
             unit.GetComponent<Unit>().SetPosition(xBottomPos + i, yBottomPos);
+            unit.transform.position = new Vector3(tileCenter + tileSize * (xBottomPos + i), tileCenter + tileSize * yBottomPos, 0);
         }
     }
     private void CreateFolders()
