@@ -23,13 +23,15 @@ public class Unit : MonoBehaviour
     private GridViewer gridViewer;
     private Movement movement;
 
-    private void Awake()
+    /*private void Awake()
     {
-        gridPos = startingGridPos;
+        //Suscribirse al evento de cambiar de direccion para moverse
+    }
+    */
+    private void Start()
+    {
         gridViewer = new GridViewer(gridPos);
         movement = new Movement(gridViewer);
-
-        //Suscribirse al evento de cambiar de direccion para moverse
     }
 
     private void Update() //Reemplazar por el "update del TimeManager"
