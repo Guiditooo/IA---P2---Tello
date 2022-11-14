@@ -20,6 +20,13 @@ public class GridManager : MonoBehaviour
     private static int gridHeight = default;
     private static int unitsPerTeam = default;
 
+    private static UnitPositionHelper unitPH = default;
+    public static void SetUnitPositionHelper(UnitPositionHelper newUnitPH)
+    {
+        unitPH = newUnitPH;
+    }
+    public static UnitPositionHelper GetUnitPositionHelper() => unitPH;
+
     public static Vector2Int GetGridLimits()///Returns max reachable value on grid
     {
         return new Vector2Int(gridWidth - 1, gridHeight - 1);

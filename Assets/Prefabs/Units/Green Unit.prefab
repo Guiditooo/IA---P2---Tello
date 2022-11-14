@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4112096241073143002
 Transform:
@@ -97,5 +97,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61c7c4350856abf4cb11c618d89bc0e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingGridPos: {x: 5, y: 5}
+  startingGridPos: {x: 0, y: 0}
   movementTime: 0.25

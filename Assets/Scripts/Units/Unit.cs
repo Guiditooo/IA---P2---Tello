@@ -42,6 +42,7 @@ public class Unit : MonoBehaviour
             movement.SetNextMovement((Movement.Movement_Direction)Random.Range(0,6));
             movement.Move();
             gridPos = gridViewer.GetGridPosition();
+            UpdateVisualPosition();
         }
     }
 
@@ -54,5 +55,11 @@ public class Unit : MonoBehaviour
         gridPos = new Vector2Int(x,y);
     }
     public Vector2Int GetPosition() => gridPos;
+
+    private void UpdateVisualPosition()
+    {
+        UnitPositionHelper UPH = GridManager.GetUnitPositionHelper();
+        transform.position = new Vector3(UPH.padding + UPH.tileSize * gridPos.x, UPH.padding + UPH.tileSize * gridPos.y, 0);
+    }
 
 }
