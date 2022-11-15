@@ -41,8 +41,8 @@ public class FoodPlacer
             reset = false;
             int possibleX = Random.Range(0, GridManager.GetGridSize().x);
             int possibleY = Random.Range(2, GridManager.GetGridLimits().x-1);
-            int possibleX = 2;
-            int possibleY = 2;
+            
+            
             possiblePos = new Vector2Int(possibleX, possibleY);
             foreach (Food food in foodList)
             {
