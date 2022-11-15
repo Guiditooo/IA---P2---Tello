@@ -167,9 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a5440c1cb18cb7498f92bcdc40c6f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialGridWidth: 100
-  initialGridHeight: 100
-  initialUnitsPerTeam: 99999
+  initialGridWidth: 75
+  initialGridHeight: 15
+  initialUnitsPerTeam: 30
   tilePrefab: {fileID: 3222151786056326161, guid: 287d5a81bde369640a8e2769ec306881, type: 3}
   greenUnitPrefab: {fileID: 4112096241073143003, guid: 321adae80f2f73d4a84ed901f132021f, type: 3}
   redUnitPrefab: {fileID: 4112096241073143003, guid: 87a9c7d4408d51a41bfe78b9ba0cd5cd, type: 3}

@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingGridPos: {x: 0, y: 0}
-  movementTime: 0.08
+  movementTime: 0.33
 --- !u!114 &-4331847060291033087
 MonoBehaviour:
   m_ObjectHideFlags: 0
