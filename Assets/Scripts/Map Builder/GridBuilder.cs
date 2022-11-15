@@ -9,32 +9,27 @@ using UnityEngine;
  * Se usa el objeto "Tile Map" para englobar las tiles.
  * Es el encargado de darle a cada tile la posicion que le corresponde en el espacio de unity.
 ***/
-public class GridBuilder : MonoBehaviour
+public class GridBuilder
 {
-    [Header("Tile Prefab")]
-    [SerializeField] private GameObject tilePrefab = null;
-    [Header("Target Folder")]
-    [SerializeField] private Transform tileMap = default;
-
 
     private static float tileSize = default;
     public static float GetTileSize() => tileSize;
 
-    private void Start()
+    public GridBuilder(GameObject tilePrefab)
     {
+        GameObject folder = new GameObject("Tile Map");
+
         tileSize = tilePrefab.GetComponent<SpriteRenderer>().bounds.size.x;
         for (int y = 0; y < GridManager.GetGridSize().y; y++) //Cada Fila
         {
             for (int x = 0; x < GridManager.GetGridSize().x; x++) //Cada Columna
             {
-                GameObject newTile = Instantiate(tilePrefab, tileMap);
+                GameObject newTile = GameObject.Instantiate(tilePrefab, folder.transform);
                 newTile.GetComponent<Tile>().SetPosition(x, y);
                 newTile.transform.position = new Vector3(tileSize * x, tileSize * y, 0);
                 newTile.name = x.ToString() + "-" + y.ToString();
             }
         }
-
     }
-
 
 }

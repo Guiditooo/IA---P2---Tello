@@ -9,12 +9,8 @@ using UnityEngine;
  * Settea en el centro del mapa dependiendo de la cantidad de unidades por equipo que haya.
 ***/
 
-public class UnitCreator : MonoBehaviour
+public class UnitCreator
 { 
-
-    [Header("Prefabs")]
-    [SerializeField] private GameObject greenUnitPrefab = null;
-    [SerializeField] private GameObject redUnitPrefab = null;
 
     private Transform unitsFolder = default;
     private Transform greenUnitsFolder = default;
@@ -22,16 +18,13 @@ public class UnitCreator : MonoBehaviour
 
     private float unitSize = default;
 
-    
-
-    void Start()
+    public UnitCreator(GameObject greenUnitPrefab, GameObject redUnitPrefab)
     {
         CreateFolders();
-        CreateUnits();
-        Destroy(this.gameObject);
+        CreateUnits(greenUnitPrefab, redUnitPrefab);
     }
 
-    private void CreateUnits()
+    private void CreateUnits(GameObject greenUnitPrefab, GameObject redUnitPrefab)
     {
 
         unitSize = greenUnitPrefab.GetComponent<SpriteRenderer>().bounds.size.x;
@@ -49,17 +42,17 @@ public class UnitCreator : MonoBehaviour
 
         for (int i = 0; i < GridManager.UnitsPerTeam; i++)
         {
-            unit = Instantiate(redUnitPrefab, redUnitsFolder);
-            unit.name = "Red " + (i+1).ToString();
+            unit = GameObject.Instantiate(redUnitPrefab, redUnitsFolder);
+            unit.name = "Red " + (i + 1).ToString();
             unit.GetComponent<Unit>().SetPosition(xTopPos - i, yTopPos);
-            unit.transform.position = new Vector3(padding+tileSize*(xTopPos-i), padding + tileSize * yTopPos, 0);
+            unit.transform.position = new Vector3(tileSize * (xTopPos - i), tileSize * yTopPos, 0);
         }
         for (int i = 0; i < GridManager.UnitsPerTeam; i++)
         {
-            unit = Instantiate(greenUnitPrefab, greenUnitsFolder);
+            unit = GameObject.Instantiate(greenUnitPrefab, greenUnitsFolder);
             unit.name = "Green " + (i + 1).ToString();
             unit.GetComponent<Unit>().SetPosition(xBottomPos + i, yBottomPos);
-            unit.transform.position = new Vector3(padding + tileSize * (xBottomPos + i), padding + tileSize * yBottomPos, 0);
+            unit.transform.position = new Vector3(tileSize * (xBottomPos + i), tileSize * yBottomPos, 0);
         }
 
         UnitPositionHelper unitPH;

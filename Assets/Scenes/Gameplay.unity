@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 369550644}
   - component: {fileID: 369550645}
-  - component: {fileID: 369550646}
   m_Layer: 0
   m_Name: GridManager
   m_TagString: Untagged
@@ -168,23 +167,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a5440c1cb18cb7498f92bcdc40c6f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialGridWidth: 10
-  initialGridHeight: 10
-  initialUnitsPerTeam: 5
---- !u!114 &369550646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369550643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f2d0f9d32022af478951879dad941ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  initialGridWidth: 100
+  initialGridHeight: 100
+  initialUnitsPerTeam: 99999
   tilePrefab: {fileID: 3222151786056326161, guid: 287d5a81bde369640a8e2769ec306881, type: 3}
-  tileMap: {fileID: 872123159}
+  greenUnitPrefab: {fileID: 4112096241073143003, guid: 321adae80f2f73d4a84ed901f132021f, type: 3}
+  redUnitPrefab: {fileID: 4112096241073143003, guid: 87a9c7d4408d51a41bfe78b9ba0cd5cd, type: 3}
+  foodPrefab: {fileID: 4689766959974521029, guid: 9569f21e852daa74e8e6491b621cbc34, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,80 +258,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &872123158
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 872123159}
-  m_Layer: 0
-  m_Name: TileMap
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &872123159
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 872123158}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1448623156
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1448623157}
-  - component: {fileID: 1448623158}
-  m_Layer: 0
-  m_Name: Unit Creator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1448623157
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1448623156}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1448623158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1448623156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c8894408696cf5458bb696c637c8c5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  greenUnitPrefab: {fileID: 4112096241073143003, guid: 321adae80f2f73d4a84ed901f132021f, type: 3}
-  redUnitPrefab: {fileID: 4112096241073143003, guid: 87a9c7d4408d51a41bfe78b9ba0cd5cd, type: 3}

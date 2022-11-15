@@ -61,7 +61,7 @@ public class Unit : MonoBehaviour
     private void UpdateVisualPosition()
     {
         UnitPositionHelper UPH = GridManager.GetUnitPositionHelper();
-        transform.position = new Vector3(UPH.padding + UPH.tileSize * gridPos.x, UPH.padding + UPH.tileSize * gridPos.y, 0);
+        transform.position = new Vector3(UPH.tileSize * gridPos.x,UPH.tileSize * gridPos.y, 0);
     }
 
 }
